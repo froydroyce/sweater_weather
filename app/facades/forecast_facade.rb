@@ -1,11 +1,11 @@
 class ForecastFacade
-  attr_reader :id, :location, :forecast
+  attr_reader :id, :location, :forecast, :images
   def initialize(city_state)
     @id = nil
     @city_state = city_state
     @location = location
     @forcast = forecast
-    # @images = images
+    @images = images
   end
 
   def location

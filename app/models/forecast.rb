@@ -9,7 +9,6 @@ class Forecast
   end
 
   def tonight
-    binding.pry
     @hourly.select { |data| data[:time] == night_time }
   end
 

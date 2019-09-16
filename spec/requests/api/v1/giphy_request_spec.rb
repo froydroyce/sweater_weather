@@ -14,6 +14,23 @@ describe 'Giphy API' do
     expect(response).to be_successful
     gifs = JSON.parse(response.body)
 
-    
+    expect(gifs["data"].count).to eq(3)
+    expect(gifs["data"]["attributes"]).to have_key("images")
+    expect(gifs["data"]["attributes"]["images"]).to be_a Array
+    expect(gifs["data"]["attributes"]["images"][0]["time"]).to eq(1568527200)
+    expect(gifs["data"]["attributes"]["images"][0]["summary"]).to eq("Mostly cloudy throughout the day.")
+    expect(gifs["data"]["attributes"]["images"][0]["url"]).to eq("https://giphy.com/gifs/dark-castle-63xBFHKNVjZlu")
+    expect(gifs["data"]["attributes"]["images"][1]["time"]).to eq(1568613600)
+    expect(gifs["data"]["attributes"]["images"][1]["summary"]).to eq("Partly cloudy throughout the day.")
+    expect(gifs["data"]["attributes"]["images"][1]["url"]).to eq("https://giphy.com/gifs/beach-clouds-aQ7kognlRPDzi")
+    expect(gifs["data"]["attributes"]["images"][2]["time"]).to eq(1568700000)
+    expect(gifs["data"]["attributes"]["images"][2]["summary"]).to eq("Partly cloudy throughout the day.")
+    expect(gifs["data"]["attributes"]["images"][2]["url"]).to eq("https://giphy.com/gifs/beach-clouds-aQ7kognlRPDzi")
+    expect(gifs["data"]["attributes"]["images"][3]["time"]).to eq(1568786400)
+    expect(gifs["data"]["attributes"]["images"][3]["summary"]).to eq("Partly cloudy throughout the day.")
+    expect(gifs["data"]["attributes"]["images"][3]["url"]).to eq("https://giphy.com/gifs/beach-clouds-aQ7kognlRPDzi")
+    expect(gifs["data"]["attributes"]["images"][4]["time"]).to eq(1568872800)
+    expect(gifs["data"]["attributes"]["images"][4]["summary"]).to eq("Mostly cloudy throughout the day.")
+    expect(gifs["data"]["attributes"]["images"][4]["url"]).to eq("https://giphy.com/gifs/dark-castle-63xBFHKNVjZlu")
   end
 end
