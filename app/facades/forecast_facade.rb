@@ -1,5 +1,6 @@
 class ForecastFacade
   attr_reader :id
+  
   def initialize(city_state)
     @id = nil
     @city_state = city_state
