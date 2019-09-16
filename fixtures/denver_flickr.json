@@ -1,0 +1,22 @@
+jsonFlickrApi({
+    "photos": {
+        "page": 1,
+        "pages": 585,
+        "perpage": 1,
+        "total": "585",
+        "photo": [
+            {
+                "id": "48628059008",
+                "owner": "26861346@N00",
+                "secret": "9ab1b6c1ac",
+                "server": "65535",
+                "farm": 66,
+                "title": "08242019-13",
+                "ispublic": 1,
+                "isfriend": 0,
+                "isfamily": 0
+            }
+        ]
+    },
+    "stat": "ok"
+})
