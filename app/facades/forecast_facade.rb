@@ -4,7 +4,7 @@ class ForecastFacade
     @id = nil
     @city_state = city_state
     @location = location
-    @forcast = forecast
+    @forecast = forecast
     @images = images
   end
 
@@ -16,6 +16,12 @@ class ForecastFacade
     Forecast.new(forecast_for(@location))
   end
 
+  def images
+    @forecast.daily[0..4].map do |daily|
+      Gif.new(daily[:time], daily[:summary], gifs_for(daily[:summary]))
+    end
+  end
+
   private
 
   def geolocation(city_state)
@@ -24,6 +30,10 @@ class ForecastFacade
 
   def forecast_for(location)
     darksky_service.forecast_by(location)
+  end
+
+  def gifs_for(summary)
+    giphy_service.gifs_by(summary)
   end
 
   def geo_service
