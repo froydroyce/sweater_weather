@@ -1,6 +1,6 @@
 class Location
-  attr_reader :lat, :lng
-  
+  attr_reader :lat, :lng, :city, :state, :country
+
   def initialize(attr)
     @city = attr[:address_components][0][:long_name]
     @state = attr[:address_components][2][:short_name]
