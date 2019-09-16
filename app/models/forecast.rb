@@ -1,4 +1,5 @@
 class Forecast
+  attr_reader :currently, :today, :hourly, :tonight, :daily
   def initialize(attr)
     @currently = attr[:currently]
     @today = attr[:daily][:data][0]
