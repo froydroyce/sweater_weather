@@ -8,6 +8,26 @@ describe 'Forecast API' do
     dark_response = File.open("./fixtures/denver_darksky.json")
     stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_API']}/39.7392358,-104.990251").
       to_return(status: 200, body: dark_response)
+    allow_any_instance_of(Forecast).to receive(:tonight).and_return(
+      [{"time"=>1568599200,
+      "summary"=>"Mostly Cloudy",
+      "icon"=>"partly-cloudy-night",
+      "precipIntensity"=>0.0005,
+      "precipProbability"=>0.01,
+      "precipType"=>"rain",
+      "temperature"=>84.13,
+      "apparentTemperature"=>84.13,
+      "dewPoint"=>32.1,
+      "humidity"=>0.15,
+      "pressure"=>1009.77,
+      "windSpeed"=>8.14,
+      "windGust"=>14.16,
+      "windBearing"=>171,
+      "cloudCover"=>0.76,
+      "uvIndex"=>0,
+      "visibility"=>10,
+      "ozone"=>279.2}]
+    )
 
     get '/api/v1/forecast?location=denver,co'
 

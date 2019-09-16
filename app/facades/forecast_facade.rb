@@ -5,6 +5,7 @@ class ForecastFacade
     @city_state = city_state
     @location = location
     @forcast = forecast
+    # @images = images
   end
 
   def location
