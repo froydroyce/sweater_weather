@@ -8,6 +8,7 @@ describe 'Forecast API' do
     dark_response = File.open("./fixtures/denver_darksky.json")
     stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_API']}/39.7392358,-104.990251").
       to_return(status: 200, body: dark_response)
+    allow_any_instance_of(DateTime).to receive(:to_time).and_return(1568599200)
 
     get '/api/v1/forecast?location=denver,co'
 

@@ -1,0 +1,22 @@
+{
+    "photos": {
+        "page": 1,
+        "pages": 71,
+        "perpage": 1,
+        "total": "71",
+        "photo": [
+            {
+                "id": "43691964192",
+                "owner": "8121206@N07",
+                "secret": "4ff507454d",
+                "server": "930",
+                "farm": 1,
+                "title": "Denver Skyline",
+                "ispublic": 1,
+                "isfriend": 0,
+                "isfamily": 0
+            }
+        ]
+    },
+    "stat": "ok"
+}
