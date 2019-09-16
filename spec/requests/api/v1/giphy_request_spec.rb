@@ -8,7 +8,13 @@ describe 'Giphy API' do
     dark_response = File.open("./fixtures/denver_darksky.json")
     stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_API']}/39.7392358,-104.990251").
       to_return(status: 200, body: dark_response)
-
+    mostly_response = File.open("./fixtures/mostly_cloudy.json")
+    stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIPHY_KEY']}&limit=1&q=Mostly%20cloudy%20throughout%20the%20day.").
+      to_return(status: 200, body: mostly_response)
+    partly_response = File.open("./fixtures/partly_cloudy.json")
+    stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIPHY_KEY']}&limit=1&q=Partly%20cloudy%20throughout%20the%20day.").
+      to_return(status: 200, body: partly_response)
+      
     get "/api/v1/gifs?location=denver,co"
 
     expect(response).to be_successful

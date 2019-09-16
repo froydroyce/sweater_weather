@@ -1,8 +1,7 @@
 class Gif
   def initialize(time, summary, image)
-    binding.pry
     @time = time
     @summary = summary
-    @image = image
+    @image = image["data"][0]["url"]
   end
 end

@@ -36,6 +36,10 @@ class ForecastFacade
     giphy_service.gifs_by(summary)
   end
 
+  def giphy_service
+    @_giphy_service ||= GiphyService.new
+  end
+
   def geo_service
     @_geo_service ||= GeocodeService.new
   end
