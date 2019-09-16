@@ -14,7 +14,7 @@ describe 'Giphy API' do
     partly_response = File.open("./fixtures/partly_cloudy.json")
     stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIPHY_KEY']}&limit=1&q=Partly%20cloudy%20throughout%20the%20day.").
       to_return(status: 200, body: partly_response)
-      
+
     get "/api/v1/gifs?location=denver,co"
 
     expect(response).to be_successful
@@ -38,5 +38,6 @@ describe 'Giphy API' do
     expect(gifs["data"]["attributes"]["images"][4]["time"]).to eq(1568872800)
     expect(gifs["data"]["attributes"]["images"][4]["summary"]).to eq("Mostly cloudy throughout the day.")
     expect(gifs["data"]["attributes"]["images"][4]["url"]).to eq("https://giphy.com/gifs/dark-castle-63xBFHKNVjZlu")
+    expect(gifs["data"]["attributes"]["copyright"]).to eq("2019")
   end
 end
