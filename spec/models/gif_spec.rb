@@ -3,7 +3,7 @@ require "rails_helper"
 describe Gif do
   it "exists" do
     mostly_cloudy = File.read("./fixtures/mostly_cloudy.json")
-    giphy = JSON.parse(mostly_cloudy, symbolize_name: true)
+    giphy = JSON.parse(mostly_cloudy, symbolize_names: true)
     gif = Gif.new(1568527200, "Mostly cloudy throughout the day.", giphy)
 
     expect(gif).to be_a Gif
