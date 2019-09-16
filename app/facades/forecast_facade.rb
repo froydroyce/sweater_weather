@@ -1,11 +1,8 @@
 class ForecastFacade
-  attr_reader :id, :location, :forecast, :images
+  attr_reader :id
   def initialize(city_state)
     @id = nil
     @city_state = city_state
-    @location = location
-    @forecast = forecast
-    @images = images
   end
 
   def location
@@ -13,11 +10,11 @@ class ForecastFacade
   end
 
   def forecast
-    Forecast.new(forecast_for(@location))
+    Forecast.new(forecast_for(location))
   end
 
   def images
-    @forecast.daily[0..4].map do |daily|
+    forecast.daily[0..4].map do |daily|
       Gif.new(daily[:time], daily[:summary], gifs_for(daily[:summary]))
     end
   end
