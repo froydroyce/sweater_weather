@@ -19,8 +19,8 @@ describe "Acount Creation" do
     post "/api/v1/users?email=&password=&password_confirmation="
 
     expect(response).to_not be_successful
-    bad_request = JSON.parse(response.body)
+    bad_request = response.body
 
-    expect(bad_request["data"]["attributes"]["errors"]).to eq("Password can't be blank and Email can't be blank")
+    expect(bad_request).to eq("Password can't be blank and Email can't be blank")
   end
 end
