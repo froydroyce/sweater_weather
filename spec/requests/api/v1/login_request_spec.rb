@@ -24,8 +24,8 @@ describe 'Login' do
     post "/api/v1/sessions?email=whatchamac@exeample.com&password=pord"
 
     expect(response).to_not be_successful
-    api_key = response.body
+    api_key = JSON.parse(response.body)
 
-    expect(api_key).to eq("Your Email or Password is incorrect")
+    expect(api_key["error"]).to eq("Your Email or Password is incorrect")
   end
 end
