@@ -35,7 +35,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'pry'
-  gem 'fast_jsonapi'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'simplecov'
