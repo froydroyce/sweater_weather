@@ -20,22 +20,22 @@ class ForecastFacade
   private
 
   def geolocation(city_state)
-    geo_service.location_by_city_state(city_state)
+    @_geo ||= google_service.location_by_city_state(city_state)
   end
 
   def forecast_for(location)
-    darksky_service.forecast_by(location)
+    @_dark_for ||= darksky_service.forecast_by(location)
   end
 
   def future_forecast_for(location, arrival_time)
-    darksky_service.future_forecast_by(location, arrival_time)
+    @_dark_fut ||= darksky_service.future_forecast_by(location, arrival_time)
   end
 
-  def geo_service
-    @_geo_service ||= GeocodeService.new
+  def google_service
+    GoogleService.new
   end
 
   def darksky_service
-    @_darksky_service ||= DarkskyService.new
+    DarkskyService.new
   end
 end

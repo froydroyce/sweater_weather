@@ -1,4 +1,8 @@
-class DirectionsService
+class GoogleService
+  def location_by_city_state(city_state)
+    get_json("/maps/api/geocode/json?address=#{city_state}")
+  end
+
   def directions_by(origin, destination)
     get_json("/maps/api/directions/json?origin=#{origin}&destination=#{destination}")
   end

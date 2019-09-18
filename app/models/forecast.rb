@@ -3,7 +3,7 @@ class Forecast
   def initialize(attr)
     @currently = attr[:currently]
     @today = attr[:daily][:data][0]
-    @hourly = attr[:hourly][:data][0..7]
+    @hourly = attr[:hourly][:data]
     @tonight = tonight[0]
     @daily = attr[:daily][:data]
   end
@@ -13,14 +13,7 @@ class Forecast
   end
 
   def night_time
-    DateTime.new(
-      Time.now.year,
-      Time.now.month,
-      Time.now.day,
-      20,
-      0,
-      0,
-      Time.now.zone
-    ).to_time.to_i
+    t = Time.now
+    DateTime.new(t.year, t.month, t.day, 20, 0, 0, t.zone).to_time.to_i
   end
 end
