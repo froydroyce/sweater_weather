@@ -4,8 +4,7 @@ describe 'Login' do
   before(:each) do
     @user = User.create!(
       email: "whatchamacallit@example.com",
-      password: "password",
-      password_confirmation: "password"
+      password: "password"
     )
     allow(User).to receive(:find_by).and_return(@user)
   end
