@@ -21,11 +21,11 @@ class RoadTripFacade
   private
 
   def directions_for(origin, destination)
-    @_directions ||= directions_service.directions_by(origin, destination)
+    @_directions ||= google_service.directions_by(origin, destination)
   end
 
-  def directions_service
-    DirectionsService.new
+  def google_service
+    GoogleService.new
   end
 
   def forecast_facade

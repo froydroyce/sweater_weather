@@ -10,7 +10,7 @@ describe Forecast do
     expect(forecast).to be_a Forecast
     expect(forecast.currently.count).to eq(19)
     expect(forecast.today.count).to eq(39)
-    expect(forecast.hourly.count).to eq(8)
+    expect(forecast.hourly.count).to eq(49)
     expect(forecast.tonight[0].count).to eq(18)
     expect(forecast.daily.count).to eq(8)
   end

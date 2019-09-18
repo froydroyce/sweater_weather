@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Road Trip" do
   it "returns road trip data" do
     directions_response = File.open("./fixtures/denver_roadtrip.json")
-    stub_request(:get, "https://maps.googleapis.com/api/directions/json?destination=Pueblo,CO&key=#{ENV['GOOGLE_KEY']}&origin=Denver,CO").
+    stub_request(:get, "https://maps.googleapis.com/maps/api/directions/json?destination=Pueblo,CO&key=#{ENV['GOOGLE_KEY']}&origin=Denver,CO").
       to_return(status: 200, body: directions_response)
     geo_response = File.open("./fixtures/pueblo_geocode.json")
     stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json?address=Pueblo,CO&key=#{ENV['GOOGLE_KEY']}").
@@ -49,8 +49,8 @@ describe "Road Trip" do
     post "/api/v1/road_trip", params: body
 
     expect(response).to_not be_successful
-    road_trip = response.body
+    road_trip = JSON.parse(response.body)
 
-    expect(road_trip).to eq("Invalid or no api_key")
+    expect(road_trip["error"]).to eq("Invalid or no api_key")
   end
 end
