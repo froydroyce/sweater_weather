@@ -1,6 +1,6 @@
 class DirectionsService
   def directions_by(origin, destination)
-    get_json("/api/directions/json?origin=#{origin}&destination=#{destination}")
+    get_json("/maps/api/directions/json?origin=#{origin}&destination=#{destination}")
   end
 
   private
