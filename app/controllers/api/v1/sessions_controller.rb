@@ -4,7 +4,9 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       render json: UserSerializer.new(user)
     else
-      render json: "Your Email or Password is incorrect", status: :bad_request
+      render json: {
+        error: "Your Email or Password is incorrect"
+        }, status: :bad_request
     end
   end
 end
