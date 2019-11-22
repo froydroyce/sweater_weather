@@ -26,7 +26,8 @@ https://hidden-savannah-05612.herokuapp.com/api/v1
       b) [Flickr API key](https://www.flickr.com/services/api/) `FLICKR_API: <API_KEY`
       
       c) [Google API key](https://developers.google.com/maps/documentation/embed/get-api-key/) `GOOGLE_KEY: <API_KEY>`
-  5. To run the server: `rails s`
+  6. To run the server: `rails s`
+  7. Open your browser, and visit `http://localhost:3000/`
 
   ### Run tests:
   1. Run `rspec`
